@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-14T18:43:12 IST" name="Default suite" finished-at="2025-03-14T18:44:29 IST" duration-ms="76681">
+  <suite started-at="2025-03-14T19:26:59 IST" name="Default suite" finished-at="2025-03-14T19:28:39 IST" duration-ms="99323">
     <groups>
     </groups>
-    <test started-at="2025-03-14T18:43:12 IST" name="Default test" finished-at="2025-03-14T18:44:29 IST" duration-ms="76681">
+    <test started-at="2025-03-14T19:26:59 IST" name="Default test" finished-at="2025-03-14T19:28:39 IST" duration-ms="99323">
       <class name="RunnableClass.Janitorial_Login">
-        <test-method is-config="true" signature="setup()[pri:0, instance:RunnableClass.Janitorial_Login@3eb25e1a]" started-at="2025-03-14T18:43:12 IST" name="setup" finished-at="2025-03-14T18:43:36 IST" duration-ms="23819" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:RunnableClass.Janitorial_Login@6f01b95f]" started-at="2025-03-14T19:26:59 IST" name="setup" finished-at="2025-03-14T19:27:19 IST" duration-ms="19786" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="PermissionScren()[pri:0, instance:RunnableClass.Janitorial_Login@3eb25e1a]" started-at="2025-03-14T18:43:36 IST" name="PermissionScren" finished-at="2025-03-14T18:43:58 IST" duration-ms="21338" status="PASS">
+        <test-method signature="PermissionScren()[pri:0, instance:RunnableClass.Janitorial_Login@6f01b95f]" started-at="2025-03-14T19:27:19 IST" name="PermissionScren" finished-at="2025-03-14T19:28:08 IST" duration-ms="49044" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PermissionScren -->
-        <test-method signature="JanitorialCheckInCheckOut()[pri:1, instance:RunnableClass.Janitorial_Login@3eb25e1a]" started-at="2025-03-14T18:43:58 IST" name="JanitorialCheckInCheckOut" finished-at="2025-03-14T18:44:27 IST" duration-ms="29332" status="PASS">
+        <test-method signature="JanitorialCheckInCheckOut()[pri:1, instance:RunnableClass.Janitorial_Login@6f01b95f]" started-at="2025-03-14T19:28:08 IST" name="JanitorialCheckInCheckOut" finished-at="2025-03-14T19:28:37 IST" duration-ms="29246" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- JanitorialCheckInCheckOut -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:RunnableClass.Janitorial_Login@3eb25e1a]" started-at="2025-03-14T18:44:27 IST" name="teardown" finished-at="2025-03-14T18:44:29 IST" duration-ms="2138" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:RunnableClass.Janitorial_Login@6f01b95f]" started-at="2025-03-14T19:28:37 IST" name="teardown" finished-at="2025-03-14T19:28:39 IST" duration-ms="1199" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

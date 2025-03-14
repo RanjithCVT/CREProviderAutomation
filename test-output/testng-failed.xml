@@ -5,6 +5,7 @@
     <classes>
       <class name="RunnableClass.Janitorial_Login">
         <methods>
+          <include name="PermissionScren"/>
           <include name="teardown"/>
           <include name="JanitorialCheckInCheckOut"/>
           <include name="setup"/>

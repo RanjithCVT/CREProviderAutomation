@@ -10,6 +10,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import POM_Pages.Permission_ScreenPOM;
+import RunnableClass.ScreenshotClass;
 import io.appium.java_client.android.AndroidDriver;
 
 public class PermissionScreenClass {
@@ -19,12 +20,14 @@ public class PermissionScreenClass {
 	public Permission_ScreenPOM permission;
 	public ExtentReports extent;
 	public ExtentTest test;
+	public ScreenshotClass screensht;
 
 	public PermissionScreenClass(AndroidDriver Driver, WebDriverWait wait, ExtentReports extent) {
 		this.driver = Driver;
 		this.wait = wait;
 		this.extent = extent;
 		permission = new Permission_ScreenPOM(Driver);
+		screensht = new ScreenshotClass(driver);
 
 	}
 
@@ -36,6 +39,10 @@ public class PermissionScreenClass {
 
 			wait.until(ExpectedConditions.visibilityOf(permission.LocationRadioButton));
 			test.log(Status.INFO, "Location Permission Radio button is visible");
+
+			String Screenshot = screensht.GetScreenshot("PermissionScreen");
+			test.addScreenCaptureFromPath(Screenshot);
+
 			permission.LocationRadioButton.click();
 			wait.until(ExpectedConditions.visibilityOf(permission.LocationOneTime));
 			permission.LocationOneTime.click();
