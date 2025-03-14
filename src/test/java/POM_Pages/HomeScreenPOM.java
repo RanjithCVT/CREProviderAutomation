@@ -34,6 +34,9 @@ public AndroidDriver driver;
 	@FindBy(id="com.psb.ivr:id/btnLogin")
 	public WebElement LoginButton ;
 	
+	@FindBy(xpath ="//android.widget.Toast[@text=\"Pin is unavailable\"]")
+	public WebElement ToasterPINisUnavailable;
+	
 	@FindBy(id="com.psb.ivr:id/txtToolbarTitle")
 	public WebElement PINLoginLandingTitle ;
 	

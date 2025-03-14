@@ -11,17 +11,22 @@ import TestClasses.PermissionScreenClass;
 
 public class Janitorial_Login extends BaseClass {
 
-	@Test
+	@Test(priority = 0)
 	public void PermissionScren() {
-		PermissionScreenClass permission= new PermissionScreenClass(driver,wait);
+		PermissionScreenClass permission = new PermissionScreenClass(driver, wait, extent);
 		permission.PermissionScreenAutomation();
-		wait = new WebDriverWait (driver, Duration.ofSeconds(20));
-		JanitorialLoginClass janitorial = new JanitorialLoginClass(driver,wait);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		JanitorialLoginClass janitorial = new JanitorialLoginClass(driver, wait, extent);
 		janitorial.JanitorialPINLogin();
-		
-		
-		//Test comment
 
+	}
+	
+	@Test(priority = 1)
+	public void JanitorialCheckInCheckOut()
+	{
+		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		JanitorialLoginClass janitorial = new JanitorialLoginClass(driver, wait, extent);
+		janitorial.JanitorialPIN_CICO();
 	}
 
 }
