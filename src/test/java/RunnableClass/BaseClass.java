@@ -25,7 +25,7 @@ public class BaseClass {
 				"C:\\Users\\Ranji\\eclipse-workspace\\Android-Project\\AndroidTest_Eclipse\\APK\\CRE Provider DEBUG (Rewrite 3 ).apk");
 
 		driver = new AndroidDriver(new URL(appiumURL), dc);
-		//Test Comment 
+	
 
 	}
 
