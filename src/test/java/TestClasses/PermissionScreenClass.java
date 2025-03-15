@@ -1,5 +1,6 @@
 package TestClasses;
 
+import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,9 +41,6 @@ public class PermissionScreenClass {
 			wait.until(ExpectedConditions.visibilityOf(permission.LocationRadioButton));
 			test.log(Status.INFO, "Location Permission Radio button is visible");
 
-			String Screenshot = screensht.GetScreenshot("PermissionScreen");
-			test.addScreenCaptureFromPath(Screenshot);
-
 			permission.LocationRadioButton.click();
 			wait.until(ExpectedConditions.visibilityOf(permission.LocationOneTime));
 			permission.LocationOneTime.click();
@@ -68,7 +66,7 @@ public class PermissionScreenClass {
 			test.log(Status.INFO, "Next buton is clicked");
 			test.log(Status.PASS, "Permission is granted");
 		} catch (Exception e) {
-			test.log(Status.FAIL, "Permission Granting is failed because  " + e);
+			test.log(Status.FAIL, "Permission Granting is failed because  " + e.getMessage());
 		}
 	}
 

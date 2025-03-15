@@ -25,7 +25,7 @@ public class Permission_ScreenPOM {
 	@FindBy(id="com.psb.ivr:id/radStorage")
 	public WebElement StorageRadioButton;
 	
-	@FindBy(id="com.android.permissioncontroller:id/permission_allow_one_time_button")
+	@FindBy(id="com.android.permissioncontroller:id/permission_allow_foreground_only_button")
 	public WebElement LocationOneTime;
 	
 	@FindBy(id="com.android.permissioncontroller:id/permission_allow_one_time_button")

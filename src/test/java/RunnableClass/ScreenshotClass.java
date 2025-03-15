@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.commons.io.CopyUtils;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -21,13 +22,13 @@ public class ScreenshotClass {
 	public String GetScreenshot(String testName) throws Exception {
 
 		try {
-			File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			String srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 			String fileName = "screenshots/" + testName + "_" + timestamp + ".png";
-			FileUtils.copyFile(srcFile, new File(fileName));
+			fileName=srcFile;
 			return fileName;
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e.getMessage());
 		}
 		return testName;
 	}

@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-14T19:26:59 IST" name="Default suite" finished-at="2025-03-14T19:28:39 IST" duration-ms="99323">
+  <suite started-at="2025-03-15T15:20:42 IST" name="Default suite" finished-at="2025-03-15T15:21:48 IST" duration-ms="65768">
     <groups>
     </groups>
-    <test started-at="2025-03-14T19:26:59 IST" name="Default test" finished-at="2025-03-14T19:28:39 IST" duration-ms="99323">
+    <test started-at="2025-03-15T15:20:42 IST" name="Default test" finished-at="2025-03-15T15:21:48 IST" duration-ms="65768">
       <class name="RunnableClass.Janitorial_Login">
-        <test-method is-config="true" signature="setup()[pri:0, instance:RunnableClass.Janitorial_Login@6f01b95f]" started-at="2025-03-14T19:26:59 IST" name="setup" finished-at="2025-03-14T19:27:19 IST" duration-ms="19786" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:RunnableClass.Janitorial_Login@233795b6]" started-at="2025-03-15T15:20:42 IST" name="setup" finished-at="2025-03-15T15:21:01 IST" duration-ms="18251" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="PermissionScren()[pri:0, instance:RunnableClass.Janitorial_Login@6f01b95f]" started-at="2025-03-14T19:27:19 IST" name="PermissionScren" finished-at="2025-03-14T19:28:08 IST" duration-ms="49044" status="PASS">
+        <test-method signature="TC0001()[pri:0, instance:RunnableClass.Janitorial_Login@233795b6]" started-at="2025-03-15T15:21:01 IST" name="TC0001" finished-at="2025-03-15T15:21:20 IST" duration-ms="19692" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PermissionScren -->
-        <test-method signature="JanitorialCheckInCheckOut()[pri:1, instance:RunnableClass.Janitorial_Login@6f01b95f]" started-at="2025-03-14T19:28:08 IST" name="JanitorialCheckInCheckOut" finished-at="2025-03-14T19:28:37 IST" duration-ms="29246" status="PASS">
+        </test-method> <!-- TC0001 -->
+        <test-method signature="TC0002()[pri:0, instance:RunnableClass.Janitorial_Login@233795b6]" started-at="2025-03-15T15:21:20 IST" name="TC0002" finished-at="2025-03-15T15:21:47 IST" depends-on-methods="RunnableClass.Janitorial_Login.TC0001" duration-ms="27012" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- JanitorialCheckInCheckOut -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:RunnableClass.Janitorial_Login@6f01b95f]" started-at="2025-03-14T19:28:37 IST" name="teardown" finished-at="2025-03-14T19:28:39 IST" duration-ms="1199" status="PASS">
+        </test-method> <!-- TC0002 -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:RunnableClass.Janitorial_Login@233795b6]" started-at="2025-03-15T15:21:47 IST" name="teardown" finished-at="2025-03-15T15:21:48 IST" duration-ms="766" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

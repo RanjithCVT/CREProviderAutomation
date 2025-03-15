@@ -1,7 +1,5 @@
 package TestClasses;
 
-import static org.testng.Assert.assertTrue;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -15,6 +13,7 @@ import POM_Pages.JanitorialPIN.CheckOutScreenPOM;
 import POM_Pages.JanitorialPIN.CheckinScreenPOM;
 import POM_Pages.JanitorialPIN.JanitorialPIN_HomescreenPOM;
 import POM_Pages.JanitorialPIN.JanitorialScopeOfWorkPOM;
+import RunnableClass.ScreenshotClass;
 import io.appium.java_client.android.AndroidDriver;
 
 public class JanitorialLoginClass {
@@ -27,6 +26,7 @@ public class JanitorialLoginClass {
 	public CheckOutScreenPOM CO;
 	public JanitorialPIN_HomescreenPOM janhome;
 	public JanitorialScopeOfWorkPOM janscope;
+	public ScreenshotClass screensht;
 
 	public JanitorialLoginClass(AndroidDriver Driver, WebDriverWait Wait, ExtentReports extent) {
 		this.driver = Driver;
@@ -37,16 +37,19 @@ public class JanitorialLoginClass {
 		CO = new CheckOutScreenPOM(Driver);
 		janhome = new JanitorialPIN_HomescreenPOM(Driver);
 		janscope = new JanitorialScopeOfWorkPOM(Driver);
+		screensht= new ScreenshotClass(Driver);
 
 	}
 
-	public void JanitorialPINLogin() {
+	public void JanitorialPINLogin() throws Exception {
 
 		try {
 			test = extent.createTest("Janitorial PIN login Function");
 			wait.until(ExpectedConditions.visibilityOf(home.JanitorialRadioButton));
 			test.log(Status.INFO, "Janitorial PIN Radio Button is Displayed");
-			if (home.JanitorialRadioButton.isSelected()) {
+			
+			String isChecked = home.JanitorialRadioButton.getAttribute("checked");
+			if (isChecked !=null && isChecked.equals("true")) {
 				test.log(Status.INFO, "Janitorial PIN Radio button is selected");
 			} else {
 				home.JanitorialRadioButton.click();
@@ -61,16 +64,24 @@ public class JanitorialLoginClass {
 
 			try {
 				wait.until(ExpectedConditions.visibilityOf(home.PINLoginLandingTitle));
+				String Screenshot = screensht.GetScreenshot("Janitorial_Logged_IN");
+				test.addScreenCaptureFromBase64String(Screenshot, "Janitorial login Successflly");
 				test.log(Status.INFO, "Janitorial Homepage is Navigated");
 				test.log(Status.PASS, "Janitorial Logged in Successfully");
+				
 				Assert.assertTrue(true);
 			} catch (Exception e) {
-				test.log(Status.FAIL, "Janitorial Logged in failed because " + e);
+				test.log(Status.FAIL, "Janitorial Logged in failed because " + e.getMessage());
+				String Screenshot = screensht.GetScreenshot("Janitorial_Failed_Logged_IN");
+				test.addScreenCaptureFromBase64String(Screenshot, "Janitorial Login Failed");
 				Assert.assertTrue(false);
+				
 			}
 
 		} catch (Exception e) {
-			test.log(Status.FAIL, "Janitorial Logged in failed because " + e);
+			test.log(Status.FAIL, "Janitorial Logged in failed because " + e.getMessage());
+			String Screenshot = screensht.GetScreenshot("Janitorial_Failed_Logged_IN");
+			test.addScreenCaptureFromBase64String(Screenshot, "Janitorial Login Failed");
 			Assert.assertTrue(false);
 		}
 	}
@@ -112,7 +123,7 @@ public class JanitorialLoginClass {
 			test.log(Status.PASS, "Check in Check out Completed and Janitorrial Landing page navigated");
 			Assert.assertTrue(true);
 		} catch (Exception e) {
-			test.log(Status.FAIL, "Janitorial Check in Check out is Failed Because \n" + e);
+			test.log(Status.FAIL, "Janitorial Check in Check out is Failed Because \n" + e.getMessage());
 			Assert.assertTrue(false);
 		}
 

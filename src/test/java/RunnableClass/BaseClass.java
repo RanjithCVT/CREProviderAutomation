@@ -30,7 +30,16 @@ public class BaseClass {
 		dc.setCapability("platformName", "Android");
 		dc.setCapability("appium:automationName", "uiautomator2");
 		dc.setCapability("appium:app", System.getProperty("user.dir")+"\\APK\\Provider.apk");
+		dc.setCapability("appium:allowTestPackages", true);
+		dc.setCapability("appium:disableWindowAnimation", false);
+		dc.setCapability("appium:ignoreHiddenApiPolicyError", true); 
 
+		
+		//For following line is when Usb Debugger device connected only 
+//		dc.setCapability("appium:deviceName", "moto_g_pure");
+//		dc.setCapability("appium:udid", "ZD2223B5X9");
+		
+	
 		//TestReport generation 
 		extent=new ExtentReports();
 		String Date=new SimpleDateFormat("yyyy-MM-dd__(HH.mm.ss)").format(new Date());
