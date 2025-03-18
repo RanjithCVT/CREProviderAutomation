@@ -5,7 +5,7 @@
     <classes>
       <class name="RunnableClass.Janitorial_Login">
         <methods>
-          <include name="TC0002"/>
+          <include name="TC0003"/>
           <include name="TC0001"/>
           <include name="teardown"/>
           <include name="setup"/>

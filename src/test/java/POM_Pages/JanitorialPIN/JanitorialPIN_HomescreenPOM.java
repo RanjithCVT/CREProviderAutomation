@@ -48,6 +48,9 @@ public class JanitorialPIN_HomescreenPOM {
 	@FindBy(xpath="//android.widget.ImageButton[@content-desc=\"‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‎‏‏‎‏‏‏‏‏‏‏‎‎‏‎‏‎‎‏‎‏‎‎‏‏‎‏‏‏‎‏‏‏‏‏‏‏‏‎‎‎‎‏‏‎‎‎‎‏‎‎‎‏‏‎‏‎‎‏‎‎Collapse‎‏‎‎‏‎\"]")
 	public WebElement BackButtonSearchBar; 
 	
+	@FindBy(id="com.psb.ivr:id/txtLogout")
+	 public WebElement LogoutButton; 
+	
 	
 	
 	
