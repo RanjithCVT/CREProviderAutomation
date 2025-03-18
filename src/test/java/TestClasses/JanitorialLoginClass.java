@@ -15,7 +15,7 @@ import POM_Pages.JanitorialPIN.CheckinScreenPOM;
 import POM_Pages.JanitorialPIN.JanitorialPIN_HomescreenPOM;
 import POM_Pages.JanitorialPIN.JanitorialScopeOfWorkPOM;
 import POM_Pages.JanitorialPIN.TwoWayWOScreen;
-import RunnableClass.ScreenshotClass;
+import RunnableClass.ExtraFunctions;
 import io.appium.java_client.android.AndroidDriver;
 
 public class JanitorialLoginClass {
@@ -28,7 +28,7 @@ public class JanitorialLoginClass {
 	public CheckOutScreenPOM CO;
 	public JanitorialPIN_HomescreenPOM janhome;
 	public JanitorialScopeOfWorkPOM janscope;
-	public ScreenshotClass screensht;
+	public ExtraFunctions extra;
 	public TwoWayWOScreen twoway;
 
 	public JanitorialLoginClass(AndroidDriver Driver, WebDriverWait Wait, ExtentReports extent) {
@@ -40,7 +40,7 @@ public class JanitorialLoginClass {
 		CO = new CheckOutScreenPOM(Driver);
 		janhome = new JanitorialPIN_HomescreenPOM(Driver);
 		janscope = new JanitorialScopeOfWorkPOM(Driver);
-		screensht = new ScreenshotClass(Driver);
+		extra = new ExtraFunctions(Driver,wait);
 		twoway = new TwoWayWOScreen(Driver);
 
 	}
@@ -68,7 +68,7 @@ public class JanitorialLoginClass {
 
 			try {
 				wait.until(ExpectedConditions.visibilityOf(home.PINLoginLandingTitle));
-				String Screenshot = screensht.GetScreenshot("Janitorial_Logged_IN");
+				String Screenshot = extra.GetScreenshot("Janitorial_Logged_IN");
 				test.addScreenCaptureFromBase64String(Screenshot, "Janitorial login Successflly");
 				test.log(Status.INFO, "Janitorial Homepage is Navigated");
 				test.log(Status.PASS, "Janitorial Logged in Successfully");
@@ -76,7 +76,7 @@ public class JanitorialLoginClass {
 				Assert.assertTrue(true);
 			} catch (Exception e) {
 				test.log(Status.FAIL, "Janitorial Logged in failed because " + e.getMessage());
-				String Screenshot = screensht.GetScreenshot("Janitorial_Failed_Logged_IN");
+				String Screenshot = extra.GetScreenshot("Janitorial_Failed_Logged_IN");
 				test.addScreenCaptureFromBase64String(Screenshot, "Janitorial Login Failed");
 				Assert.assertTrue(false);
 
@@ -84,13 +84,13 @@ public class JanitorialLoginClass {
 
 		} catch (Exception e) {
 			test.log(Status.FAIL, "Janitorial Logged in failed because " + e.getMessage());
-			String Screenshot = screensht.GetScreenshot("Janitorial_Failed_Logged_IN");
+			String Screenshot = extra.GetScreenshot("Janitorial_Failed_Logged_IN");
 			test.addScreenCaptureFromBase64String(Screenshot, "Janitorial Login Failed");
 			Assert.assertTrue(false);
 		}
 	}
 
-	public void JanitorialPIN_CICO() {
+	public void JanitorialPIN_CICO() throws Exception {
 		test = extent.createTest("Janitorial PIN Checkin,Check Out flow");
 		try {
 			wait.until(ExpectedConditions.visibilityOf(janhome.CheckinButton));
@@ -124,13 +124,14 @@ public class JanitorialLoginClass {
 			CO.CHECK_OUT_Button.click();
 			test.log(Status.INFO, "Check out Button clicked");
 			wait.until(ExpectedConditions.visibilityOf(janhome.StoreID));
+			String Screenshot = extra.GetScreenshot("Janitorial CI_CO Passed");
+			test.addScreenCaptureFromBase64String(Screenshot, "Janitorial CI_CO Passed");
 			test.log(Status.PASS, "Check in Check out Completed and Janitorrial Landing page navigated");
-			janhome.MenuBar.click();
-			wait.until(ExpectedConditions.visibilityOf(janhome.LogoutButton));
-			janhome.LogoutButton.click();
-			wait.until(ExpectedConditions.visibilityOf(home.LoginButton));
+			
 			Assert.assertTrue(true);
 		} catch (Exception e) {
+			String Screenshot = extra.GetScreenshot("Janitorial CI_CO Failed");
+			test.addScreenCaptureFromBase64String(Screenshot, "Janitorial CI_CO Failed");
 			test.log(Status.FAIL, "Janitorial Check in Check out is Failed Because \n" + e.getMessage());
 			Assert.assertTrue(false);
 		}
@@ -140,6 +141,8 @@ public class JanitorialLoginClass {
 	public void TwoWayLoginWOCompletion() throws Exception {
 		test = extent.createTest("Workorder Fully Completion using Two Way PIN ");
 		try {
+			//Logout 
+			extra.Logout();
 			wait.until(ExpectedConditions.visibilityOf(home.EnterPINTextBox));
 			home.EnterPINTextBox.sendKeys("745416");
 			test.log(Status.INFO, "Two way login PIN Entered");
@@ -166,7 +169,7 @@ public class JanitorialLoginClass {
 				twoway.Confirmation_YesButotn.click();
 				test.log(Status.INFO, "Workorder Confirmed Successflly");
 			}
-			test.log(Status.WARNING, "Work order already Confirmed");
+	
 			wait.until(ExpectedConditions.visibilityOf(twoway.CheckinButton));
 			twoway.CheckinButton.click();
 			test.log(Status.INFO, "Check In Button Clicked");
@@ -237,19 +240,15 @@ public class JanitorialLoginClass {
 			twoway.CompleteWOSignaturePage.click();
 			test.log(Status.INFO, "Complete Workorder button Clicked");
 			wait.until(ExpectedConditions.visibilityOf(twoway.VIewWOButton));
-			twoway.VIewWOButton.click();
-			test.log(Status.INFO, "View Workorder button Clicked");
-			wait.until(ExpectedConditions.visibilityOf(twoway.WODetailPageStatus));
-			test.log(Status.INFO, "Work order dertails has been displayed ");
-			String Screenshot = screensht.GetScreenshot("Two Way Login WO Completed");
+			String Screenshot = extra.GetScreenshot("Two Way Login WO Completed");
 			test.addScreenCaptureFromBase64String(Screenshot, "Two Way login Workoder Completion done ");
 			test.log(Status.PASS, "Work order completion for Two way login PIN is successfully done");
 			Assert.assertTrue(true);
 		} catch (Exception e) {
-			String Screenshot = screensht.GetScreenshot("Two Way Login WO Not Completed");
+			String Screenshot = extra.GetScreenshot("Two Way Login WO Not Completed");
 			test.addScreenCaptureFromBase64String(Screenshot, "Two Way login Workoder Not Completed  ");
 			test.log(Status.FAIL,
-					"Work order completion for Two way login PIN is Not Done Completely because  " + e.getMessage());
+					"Work order completion for Two way login PIN is Not Done Completely because  \n" + e.getMessage());
 			Assert.assertTrue(false);
 		}
 

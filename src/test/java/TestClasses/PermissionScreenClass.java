@@ -1,6 +1,5 @@
 package TestClasses;
 
-import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,7 +10,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import POM_Pages.Permission_ScreenPOM;
-import RunnableClass.ScreenshotClass;
+import RunnableClass.ExtraFunctions;
 import io.appium.java_client.android.AndroidDriver;
 
 public class PermissionScreenClass {
@@ -21,14 +20,14 @@ public class PermissionScreenClass {
 	public Permission_ScreenPOM permission;
 	public ExtentReports extent;
 	public ExtentTest test;
-	public ScreenshotClass screensht;
+	public ExtraFunctions extra;
 
 	public PermissionScreenClass(AndroidDriver Driver, WebDriverWait wait, ExtentReports extent) {
 		this.driver = Driver;
 		this.wait = wait;
 		this.extent = extent;
 		permission = new Permission_ScreenPOM(Driver);
-		screensht = new ScreenshotClass(driver);
+		extra = new ExtraFunctions(driver, wait);
 
 	}
 

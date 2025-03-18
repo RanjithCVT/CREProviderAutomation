@@ -51,7 +51,11 @@ public class JanitorialPIN_HomescreenPOM {
 	@FindBy(id="com.psb.ivr:id/txtLogout")
 	 public WebElement LogoutButton; 
 	
-	
+ 	@FindBy(id="com.psb.ivr:id/btnYes")
+	 public WebElement LogoutYESButton;  
+ 	
+ 	@FindBy(id="com.psb.ivr:id/btnNo")
+	 public WebElement LogoutNoButton;  
 	
 	
 	
