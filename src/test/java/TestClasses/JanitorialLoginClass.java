@@ -72,7 +72,6 @@ public class JanitorialLoginClass {
 				test.addScreenCaptureFromBase64String(Screenshot, "Janitorial login Successflly");
 				test.log(Status.INFO, "Janitorial Homepage is Navigated");
 				test.log(Status.PASS, "Janitorial Logged in Successfully");
-
 				Assert.assertTrue(true);
 			} catch (Exception e) {
 				test.log(Status.FAIL, "Janitorial Logged in failed because " + e.getMessage());
@@ -231,7 +230,10 @@ public class JanitorialLoginClass {
 			test.log(Status.INFO, "Signature box Clicked ");
 			wait.until(ExpectedConditions.visibilityOf(twoway.SignatureDrawingBox));
 			Actions action = new Actions(driver);
-			action.moveToElement(twoway.SignatureDrawingBox).click().perform();
+			action.clickAndHold(twoway.SignatureDrawingBox)
+					.moveByOffset(100, 0)  // Draw a horizontal line of 100 pixels
+					.release()
+					.perform();
 			test.log(Status.INFO, "Signature was written");
 			wait.until(ExpectedConditions.visibilityOf(twoway.SignatureApproveButton));
 			twoway.SignatureApproveButton.click();
