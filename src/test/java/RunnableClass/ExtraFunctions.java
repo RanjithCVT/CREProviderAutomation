@@ -1,16 +1,20 @@
 package RunnableClass;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import POM_Pages.HomeScreenPOM;
 import POM_Pages.JanitorialPIN.JanitorialPIN_HomescreenPOM;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.Date;
 
 public class ExtraFunctions {
 
@@ -48,5 +52,56 @@ public class ExtraFunctions {
 		janhome.LogoutYESButton.click();
 		wait.until(ExpectedConditions.visibilityOf(home.LoginButton));
 	}
+
+	public void scrollToElementByElement(WebElement Element) {
+		try {
+			Actions a = new Actions(driver);
+			a.clickAndHold(Element)
+			.moveByOffset(0, 100)  // Draw a horizontal line of 100 pixels
+					.release()
+					.perform();
+
+		} catch (Exception e) {
+			System.out.println("Element not found: " + Element);
+		}
+	}
+
+
+
+
+
+
+
+	public void scrollToElement(String elementText) {
+		// Use UiScrollable and UiSelector to scroll to the element
+		String scrollCommand = "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"" + elementText + "\"))";
+
+		// Execute the scroll command
+		driver.findElement(By.xpath("//android.widget.TextView[@resource-id='com.psb.ivr:id/txtTitle'' and "+"@text='" + elementText + "']"));
+	}
+
+
+
+	public void Scroll(WebElement Element) {
+		try {
+			// Scroll to the element
+			scrollToElement(""+Element.getText()+"");
+
+			// Verify the element is visible
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.visibilityOf(Element));
+
+
+			if (Element.isDisplayed()) {
+				System.out.println("Element is visible after scrolling.");
+			} else {
+				System.out.println("Element is not visible.");
+			}
+		} catch (Exception e) {
+			System.err.println("Error during scrolling: " + e.getMessage());
+		}
+	}
+
+
 
 }

@@ -61,7 +61,7 @@ public class JanitorialLoginClass {
             }
             wait.until(ExpectedConditions.visibilityOf(home.EnterPINTextBox));
             home.EnterPINTextBox.sendKeys("935059");
-            test.log(Status.INFO, "Janitorial PIN Number is Enteren into the Textbox");
+            test.log(Status.INFO, "Janitorial PIN Number is Entered into the Textbox");
             wait.until(ExpectedConditions.visibilityOf(home.LoginButton));
             home.LoginButton.click();
             test.log(Status.INFO, "Login Button is clicked");
@@ -169,57 +169,57 @@ public class JanitorialLoginClass {
             twoway.JanitorialTab.click();
             test.log(Status.INFO, "Janitorial Tab Clicked");
         }
-            try {
-                wait.until(ExpectedConditions.visibilityOf(janhome.CheckinButton));
-                test.log(Status.INFO, "Janitorial Landing page navigated");
-                janhome.CheckinButton.click();
-                test.log(Status.INFO, "Checkin Button Clicked");
-                wait.until(ExpectedConditions.visibilityOf(CI.Manager_YesButton));
-                CI.ImageCaptureIcon.click();
-                test.log(Status.INFO, "Image capturing clicked");
-                wait.until(ExpectedConditions.visibilityOf(CI.PictureShutterbutton));
-                CI.PictureShutterbutton.click();
-                test.log(Status.INFO, "Check in Image Captured");
-                wait.until(ExpectedConditions.visibilityOf(CI.Manager_YesButton));
-                CI.Manager_YesButton.click();
-                test.log(Status.INFO, "Manager Arrival selected");
-                CI.CHECK_IN_Button.click();
-                test.log(Status.INFO, "Checkin Button clicked");
-                wait.until(ExpectedConditions.visibilityOf(janscope.ScopeOfWorkList));
-                test.log(Status.INFO, "Scope of work listing page navigated");
-                janscope.Question.click();
-                test.log(Status.INFO, "Scope of work selected");
-                janscope.CHECK_OUT_Button.click();
-                test.log(Status.INFO, "Check out button clicked");
-                wait.until(ExpectedConditions.visibilityOf(CO.ImageCaptureIcon));
-                CO.ImageCaptureIcon.click();
-                test.log(Status.INFO, "Image capturing clicked");
-                wait.until(ExpectedConditions.visibilityOf(CO.PictureShutterbutton));
-                CO.PictureShutterbutton.click();
-                test.log(Status.INFO, "Check out Image Captured");
-                wait.until(ExpectedConditions.visibilityOf(CO.TakenImageList));
-                CO.CHECK_OUT_Button.click();
-                test.log(Status.INFO, "Check out Button clicked");
-                wait.until(ExpectedConditions.visibilityOf(janhome.StoreID));
-                String Screenshot = extra.GetScreenshot("Two way Janitorial CI_CO Passed");
-                test.addScreenCaptureFromBase64String(Screenshot, "Two way Janitorial CI_CO Passed");
-                test.log(Status.PASS, "Two way Janitorial Check in Check out Completed and Landing page navigated");
-                Assert.assertTrue(true);
+        try {
+            wait.until(ExpectedConditions.visibilityOf(janhome.CheckinButton));
+            test.log(Status.INFO, "Janitorial Landing page navigated");
+            janhome.CheckinButton.click();
+            test.log(Status.INFO, "Checkin Button Clicked");
+            wait.until(ExpectedConditions.visibilityOf(CI.Manager_YesButton));
+            CI.ImageCaptureIcon.click();
+            test.log(Status.INFO, "Image capturing clicked");
+            wait.until(ExpectedConditions.visibilityOf(CI.PictureShutterbutton));
+            CI.PictureShutterbutton.click();
+            test.log(Status.INFO, "Check in Image Captured");
+            wait.until(ExpectedConditions.visibilityOf(CI.Manager_YesButton));
+            CI.Manager_YesButton.click();
+            test.log(Status.INFO, "Manager Arrival selected");
+            CI.CHECK_IN_Button.click();
+            test.log(Status.INFO, "Checkin Button clicked");
+            wait.until(ExpectedConditions.visibilityOf(janscope.ScopeOfWorkList));
+            test.log(Status.INFO, "Scope of work listing page navigated");
+            janscope.Question.click();
+            test.log(Status.INFO, "Scope of work selected");
+            janscope.CHECK_OUT_Button.click();
+            test.log(Status.INFO, "Check out button clicked");
+            wait.until(ExpectedConditions.visibilityOf(CO.ImageCaptureIcon));
+            CO.ImageCaptureIcon.click();
+            test.log(Status.INFO, "Image capturing clicked");
+            wait.until(ExpectedConditions.visibilityOf(CO.PictureShutterbutton));
+            CO.PictureShutterbutton.click();
+            test.log(Status.INFO, "Check out Image Captured");
+            wait.until(ExpectedConditions.visibilityOf(CO.TakenImageList));
+            CO.CHECK_OUT_Button.click();
+            test.log(Status.INFO, "Check out Button clicked");
+            wait.until(ExpectedConditions.visibilityOf(janhome.StoreID));
+            String Screenshot = extra.GetScreenshot("Two way Janitorial CI_CO Passed");
+            test.addScreenCaptureFromBase64String(Screenshot, "Two way Janitorial CI_CO Passed");
+            test.log(Status.PASS, "Two way Janitorial Check in Check out Completed and Landing page navigated");
+            Assert.assertTrue(true);
 
-            } catch (Exception e) {
-                test.log(Status.INFO, "Janitorial Two Way login CI_CO Not Completed");
-                test.log(Status.FAIL, "Two Way login Janitorial CI_CO  Failed because  " + e.getMessage());
-                Assert.assertTrue(false);
-            }
-
+        } catch (Exception e) {
+            test.log(Status.INFO, "Janitorial Two Way login CI_CO Not Completed");
+            test.log(Status.FAIL, "Two Way login Janitorial CI_CO  Failed because  " + e.getMessage());
+            Assert.assertTrue(false);
         }
+
+    }
 
 
     public void TwoWayLoginWOCompletion() throws Exception {
         test = extent.createTest("Workorder Fully Completion using Two Way PIN ");
         try {
             //Logout
-            extra.Logout();
+//            extra.Logout();
             wait.until(ExpectedConditions.visibilityOf(home.EnterPINTextBox));
             home.EnterPINTextBox.sendKeys("745416");
             test.log(Status.INFO, "Two way login PIN Entered");
