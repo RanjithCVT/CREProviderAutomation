@@ -32,6 +32,7 @@ public class Permission_ScreenPOM {
 	public WebElement CameraOneTime;
 	
 	@FindBy(id="com.android.permissioncontroller:id/permission_allow_button")
+
 	public WebElement StorageAllowAll;
 	
 	@FindBy(id="com.psb.ivr:id/btnNext")

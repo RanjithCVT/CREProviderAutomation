@@ -63,8 +63,10 @@ public class ExtraFunctions {
 		Dimension size = driver.manage().window().getSize();
 
 		int startX = size.width / 2; // Middle of the screen
+
 		int startY = (int) (size.height * 0.8); // Start near the bottom (80% of screen height)
-		int endY = (int) (size.height * 0.5); // End near the top (20% of screen height)
+		int endY = (int) (size.height * 0.02); // End near the top (20% of screen height)
+		System.out.println(startX);	System.out.println(startY);	System.out.println(endY);
 
 		PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
 		Sequence scroll = new Sequence(finger, 0);

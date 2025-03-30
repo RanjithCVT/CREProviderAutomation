@@ -219,7 +219,7 @@ public class JanitorialLoginClass {
         test = extent.createTest("Workorder Fully Completion using Two Way PIN ");
         try {
             //Logout
-//            extra.Logout();
+            extra.Logout();
             wait.until(ExpectedConditions.visibilityOf(home.EnterPINTextBox));
             home.EnterPINTextBox.sendKeys("745416");
             test.log(Status.INFO, "Two way login PIN Entered");

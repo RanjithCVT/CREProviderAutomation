@@ -3,6 +3,7 @@ package RunnableClass;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -31,13 +32,16 @@ public class BaseClass {
         String appiumURL = "http://127.0.0.1:4723";
         UiAutomator2Options options = new UiAutomator2Options()
                 .setPlatformName("Android")
+                .setNewCommandTimeout(Duration.ofMinutes(10))
                 .setAutomationName("uiautomator2")
                 .setApp(System.getProperty("user.dir") + "\\APK\\Provider.apk")
                 .setAllowTestPackages(true)
                 .setDisableWindowAnimation(false)
                 .setIgnoreHiddenApiPolicyError(true);
 
+
         // Initialize ExtentReports
+        //Manikandan
         extent = new ExtentReports();
         String Date = new SimpleDateFormat("yyyy-MM-dd__(HH.mm.ss)").format(new Date());
         String Reportname = "Report-" + Date + ".html";
